@@ -9,27 +9,59 @@
       type="image/png"
     />
     <title>Text Encrypter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <header>
       <a href="#">
-        <img height="48px" src="assets/alura-logo.svg" alt="Alura logo" />
+        <img
+          class="header__logo"
+          height="48px"
+          src="assets/alura-logo.svg"
+          alt="Alura logo"
+        />
       </a>
     </header>
     <main>
-      <textarea>Ingrese el texto aqui...</textarea>
-      <div>
-        <img width="16px" src="assets/alert-circle-icon.svg" alt="" />
-        <p>Solo letras minúsculas y sin acentos</p>
-      </div>
-      <div>
-        <button>Encriptar</button>
-        <button>Desencriptar</button>
-      </div>
-      <div>
-        <h2>Ningun mensaje fue encontrado</h2>
-        <p>Ingresa el texto que desees encriptar o desencriptar.</p>
-      </div>
+      <section class="encryptor">
+        <textarea
+          class="encryptor__text-input"
+          placeholder="Ingrese el texto aqui"
+        ></textarea>
+        <div class="encryptor__text-constraint">
+          <svg
+            class="text-constraint__icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 512 512"
+          >
+            <path
+              fill="#67808E"
+              d="M256 48C141.31 48 48 141.31 48 256s93.31 208 208 208s208-93.31 208-208S370.69 48 256 48m0 319.91a20 20 0 1 1 20-20a20 20 0 0 1-20 20m21.72-201.15l-5.74 122a16 16 0 0 1-32 0l-5.74-121.94v-.05a21.74 21.74 0 1 1 43.44 0Z"
+            />
+          </svg>
+          <p class="text-constraint__message">
+            Solo letras minúsculas y sin acentos
+          </p>
+        </div>
+        <div class="encryptor__buttons">
+          <button class="btn btn--dark-blue">Encriptar</button>
+          <button class="btn btn-light-blue">Desencriptar</button>
+        </div>
+      </section>
+      <section class="encryptor__result">
+        <h2 class="result-empty__title">Ningun mensaje fue encontrado</h2>
+        <p class="result-empty__message">
+          Ingresa el texto que desees encriptar o desencriptar.
+        </p>
+      </section>
     </main>
   </body>
 </html>
