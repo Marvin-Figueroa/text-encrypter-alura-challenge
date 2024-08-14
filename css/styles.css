@@ -31,14 +31,24 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-size: 1.6rem;
   font-family: "Inter", sans-serif;
   box-sizing: border-box;
   background-color: var(--light-blue-100);
   padding: 2.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+}
+
+header {
+  flex-grow: 0;
 }
 
 main {
+  flex-grow: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 6.4rem;
@@ -79,6 +89,7 @@ main {
 /* Header */
 
 .header__logo {
+  display: block;
   width: 32px;
   height: 48px;
 }
@@ -86,7 +97,10 @@ main {
 /* Encryptor Section */
 
 .encryptor {
-  margin-top: 5.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  flex-grow: 1;
 }
 
 .encryptor__text-input {
@@ -100,6 +114,7 @@ main {
   min-height: 25rem;
   font-size: 3.2rem;
   font-family: inherit;
+  flex-grow: 1;
 
   &::placeholder {
     color: var(--dark-blue-300);
@@ -110,7 +125,6 @@ main {
 .encryptor__text-constraint {
   display: flex;
   gap: 0.8rem;
-  margin-bottom: 1.6rem;
 
   &.input-error {
     animation: shake 0.5s ease-in-out;
@@ -141,19 +155,27 @@ main {
 /* Result Section */
 
 .encryptor__result {
-  padding: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  gap: 1.6rem;
+  padding: 3.2rem;
   background-color: white;
   border-radius: 3.2rem;
   box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.08);
   color: var(--gray-400);
 }
 
+.result-empty-image {
+  display: none;
+}
+
 .result-empty__title {
   color: var(--gray-500);
   font-size: 2.4rem;
   font-weight: 700;
-  margin-bottom: 1.6rem;
 }
 
 /* Animations */
@@ -170,5 +192,74 @@ main {
   40%,
   80% {
     transform: translateX(4px);
+  }
+}
+
+/* Media Queries */
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .encryptor__text-input {
+    font-size: 2.4rem;
+    flex-grow: 1;
+  }
+
+  .text-constraint__message {
+    font-size: 1.5rem;
+  }
+
+  .encryptor__buttons {
+    flex-direction: row;
+    gap: 2.4rem;
+
+    .btn {
+      flex: 1 1 50%;
+    }
+  }
+
+  .encryptor__result {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    height: 100vh;
+    padding-bottom: 3rem;
+    gap: 3rem;
+  }
+
+  main {
+    max-width: 114rem;
+    margin: 0 auto;
+    flex-direction: row;
+    gap: 8rem;
+  }
+
+  .encryptor {
+    flex-basis: 70%;
+  }
+
+  .encryptor__result {
+    flex-basis: 30%;
+  }
+
+  .encryptor__text-input {
+    font-size: 2rem;
+  }
+
+  .result-empty-image {
+    display: block;
+    width: 70%;
+  }
+
+  .encryptor__buttons {
+    padding-bottom: 2rem;
+    flex-direction: row;
+    gap: 2.4rem;
+
+    .btn {
+      flex-basis: 50%;
+    }
   }
 }
