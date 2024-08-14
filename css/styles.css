@@ -63,6 +63,7 @@ main {
   border: none;
   cursor: pointer;
   text-decoration: none;
+  width: 100%;
 }
 
 .btn--dark-blue {
@@ -125,20 +126,6 @@ main {
 .encryptor__text-constraint {
   display: flex;
   gap: 0.8rem;
-
-  &.input-error {
-    animation: shake 0.5s ease-in-out;
-  }
-}
-
-.input-error {
-  .text-constraint__icon path {
-    fill: crimson;
-  }
-
-  .text-constraint__message {
-    color: crimson;
-  }
 }
 
 .text-constraint__message {
@@ -157,15 +144,24 @@ main {
 .encryptor__result {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
   gap: 1.6rem;
-  padding: 3.2rem;
   background-color: white;
   border-radius: 3.2rem;
   box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.08);
   color: var(--gray-400);
+}
+
+.no-results {
+  text-align: center;
+  justify-content: center;
+  padding: 3.2rem;
+}
+
+.results-shown {
+  justify-content: space-between;
+  padding: 2rem;
+  text-align: left;
 }
 
 .result-empty-image {
@@ -193,6 +189,33 @@ main {
   80% {
     transform: translateX(4px);
   }
+}
+
+@keyframes colorChange {
+  0%,
+  100% {
+    color: initial;
+    fill: initial;
+  }
+  20%,
+  60% {
+    color: crimson;
+    fill: crimson;
+  }
+  40%,
+  80% {
+    color: crimson;
+    fill: crimson;
+  }
+}
+
+.shake-effect {
+  animation: shake 0.5s ease;
+}
+
+.shake-effect p,
+.shake-effect .text-constraint__icon path {
+  animation: colorChange 0.5s ease;
 }
 
 /* Media Queries */
@@ -233,15 +256,27 @@ main {
     max-width: 114rem;
     margin: 0 auto;
     flex-direction: row;
+    padding-bottom: 2rem;
     gap: 8rem;
   }
 
   .encryptor {
-    flex-basis: 70%;
+    flex-basis: 60%;
+  }
+
+  .text-constraint__message {
+    font-size: 1.4rem;
   }
 
   .encryptor__result {
-    flex-basis: 30%;
+    flex-basis: 40%;
+
+    p {
+      max-height: 35rem;
+      overflow-y: auto;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
   }
 
   .encryptor__text-input {

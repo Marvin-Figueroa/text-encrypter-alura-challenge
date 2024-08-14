@@ -31,10 +31,11 @@
     <main>
       <section class="encryptor">
         <textarea
+          id="encryptor-input"
           class="encryptor__text-input"
           placeholder="Ingrese el texto aqui"
         ></textarea>
-        <div class="encryptor__text-constraint">
+        <div id="input-validation-message" class="encryptor__text-constraint">
           <svg
             class="text-constraint__icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -52,11 +53,13 @@
           </p>
         </div>
         <div class="encryptor__buttons">
-          <button class="btn btn--dark-blue">Encriptar</button>
-          <button class="btn btn--light-blue">Desencriptar</button>
+          <button id="btn-encrypt" class="btn btn--dark-blue">Encriptar</button>
+          <button id="btn-decrypt" class="btn btn--light-blue">
+            Desencriptar
+          </button>
         </div>
       </section>
-      <section class="encryptor__result">
+      <section id="encryption-result" class="encryptor__result no-results">
         <img
           class="result-empty-image"
           src="assets/not-found-illustration.png"
@@ -68,5 +71,6 @@
         </p>
       </section>
     </main>
+    <script src="js/main.js"></script>
   </body>
 </html>
