@@ -20,6 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const resultText =
       action === "encrypt" ? encryptText(text) : decryptText(text);
 
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+
     showResult(resultText);
   };
 
