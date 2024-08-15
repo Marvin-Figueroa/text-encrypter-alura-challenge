@@ -51,6 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
       selection.selectAllChildren(encryptedTextResult);
 
       navigator.clipboard.writeText(encryptedTextResult.textContent);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
   };
 
